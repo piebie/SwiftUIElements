@@ -8,11 +8,36 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    static @State var progress: CGFloat = 0
+struct ContentView : View {
+
+    let tabs = [
+        CPTabItem(tabContent: {
+            Text("Heyo")
+        }, viewContent: {
+            Text("Tab 2")
+        }),
+//        CPTabItem(tabContent: {
+//            Image(systemName: "pencil")
+//        }, viewContent: {
+//            Text("Tab 1")
+//        }),
+//        CPTabItem(tabContent: {
+//            Text("Boop")
+//            Image(systemName: "person")
+//        }, viewContent: {
+//            Text("Tab 3")
+//        }),
+//        CPTabItem(tabContent: {
+//            Image(systemName: "star")
+//            Text("Beep")
+//        }, viewContent: {
+//            Text("Tab 4")
+//        })
+    ]
 
     var body: some View {
-        Text("Hello")
+        CPTabView(selectedItem: tabs[0],
+                  barItems: tabs)
     }
 }
 

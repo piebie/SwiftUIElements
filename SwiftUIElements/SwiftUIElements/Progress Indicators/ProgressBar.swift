@@ -12,15 +12,31 @@ public struct ProgressBar: View {
 
     public var progress: CGFloat
 
-    public var trayColor = Color.gray.opacity(0.4)
-    public var trayBorderColor = Color.gray.opacity(0.8)
-    public var trayBorderWidth: CGFloat = 1
+    public var trayColor: Color
+    public var trayBorderColor: Color
+    public var trayBorderWidth: CGFloat
 
-    public var fillColor = Color.accentColor
+    public var fillColor: Color
 
-    public var cornerRadius: CGFloat = 4
+    public var cornerRadius: CGFloat
 
-    public var barHeight: CGFloat = 10
+    public var barHeight: CGFloat
+
+    public init(progress: CGFloat,
+                trayColor: Color = Color.gray.opacity(0.4),
+                trayBorderColor: Color = Color.gray.opacity(0.8),
+                trayBorderWidth: CGFloat = 1,
+                fillColor: Color = .accentColor,
+                cornerRadius: CGFloat = 4,
+                barHeight: CGFloat = 10) {
+        self.progress = progress
+        self.trayColor = trayColor
+        self.trayBorderColor = trayBorderColor
+        self.trayBorderWidth = trayBorderWidth
+        self.fillColor = fillColor
+        self.cornerRadius = cornerRadius
+        self.barHeight = barHeight
+    }
 
     public var body: some View {
         ZStack(alignment: .leading) {
