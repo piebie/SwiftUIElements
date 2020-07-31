@@ -41,8 +41,52 @@ struct CPTabItem: Identifiable {
     private(set) var tabImage: Image?
     private(set) var tabLabel: Text?
 
-    init<A: View>(@ViewBuilder tabContent: () -> Text, @ViewBuilder viewContent: () -> A) {
-        tabLabel = tabContent()
+    init<A: View, B: View>(@ViewBuilder tabContent: () -> B, @ViewBuilder viewContent: () -> A) {
+        let topLevelView = tabContent()
+
+        if type(of: topLevelView) == EmptyView.self {
+            return
+        }
+
+        if let text = topLevelView as? Text {
+            tabLabel = text
+            return
+        }
+
+        if let image = topLevelView as? Image {
+            tabImage = image
+            return
+        }
+
+        let mirror = Mirror(reflecting: topLevelView)
+
+        guard let tuple = mirror.children.first else {
+            return
+        }
+
+        let tupleMirror = Mirror(reflecting: tuple.value)
+
+        guard tupleMirror.displayStyle == .tuple else {
+            return
+        }
+
+        let views: [Any] = tupleMirror.children.compactMap { child in
+            return child.value as? Text ?? child.value as? Image
+        }
+
+        for view in views {
+            let text = view as? Text
+            let image = view as? Image
+
+            if tabLabel == nil {
+                tabLabel = text
+            }
+
+            if tabImage == nil {
+                tabImage = image
+            }
+        }
+
         self.viewContent = AnyView(viewContent())
     }
 
@@ -60,26 +104,34 @@ struct CPTabView_Previews: PreviewProvider {
         CPTabItem(tabContent: {
             Text("Heyo")
         }, viewContent: {
-            Text("Tab 2")
+            Text("Tab 1")
             ProgressBar(progress: 0.5).frame(width: 200)
         }),
-//        CPTabItem(tabContent: {
-//            Image(systemName: "pencil")
-//        }, viewContent: {
-//            Text("Tab 1")
-//        }),
-//        CPTabItem(tabContent: {
-//            Text("Boop")
-//            Image(systemName: "person")
-//        }, viewContent: {
-//            Text("Tab 3")
-//        }),
-//        CPTabItem(tabContent: {
-//            Image(systemName: "star")
-//            Text("Beep")
-//        }, viewContent: {
-//            Text("Tab 4")
-//        })
+        CPTabItem(tabContent: {
+            Image(systemName: "pencil")
+        }, viewContent: {
+            Text("Tab 2")
+        }),
+        CPTabItem(tabContent: {
+            Text("Boop")
+            Image(systemName: "person")
+        }, viewContent: {
+            Text("Tab 3")
+        }),
+        CPTabItem(tabContent: {
+            Image(systemName: "star")
+            Text("Beep")
+        }, viewContent: {
+            Text("Tab 4")
+        }),
+        CPTabItem(tabContent: {
+            Text("Boop")
+            Image(systemName: "heart")
+            Text("Beep")
+            Image(systemName: "gear")
+        }, viewContent: {
+            Text("Tab 5")
+        })
     ]
 
     static var previews: some View {
