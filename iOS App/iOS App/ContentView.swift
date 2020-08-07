@@ -13,7 +13,7 @@ struct ContentView : View {
     var body: some View {
         CPTabView(index: 2) {
             CPTabItem(tabContent: {
-                Text("Heyo")
+                Text("Heyo it's me today")
             }, viewContent: {
                 Text("Tab 1")
                 ProgressBar(progress: 0.5).frame(width: 200)
