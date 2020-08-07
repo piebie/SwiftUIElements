@@ -14,6 +14,8 @@ struct CPTabView: View {
     @State var selectedIndex: Int
     var barItems: [CPTabItem]
 
+    @State var tabImageHeight: CGFloat?
+
     init<A: View>(index: Int = 0, @ViewBuilder tabItems: () -> A) {
         let topLevelView = tabItems()
 
@@ -69,13 +71,27 @@ struct CPTabView: View {
             HStack(alignment: .top, spacing: 0) {
                 ForEach(0 ..< self.barItems.count) { index in
                     Button(action: { self.selectedIndex = index }) {
-                        self.barItems[index].tabItemBody
+                        VStack {
+
+                            if self.barItems[index].tabImage != nil {
+                                self.barItems[index].tabImage
+                                    .syncingHeightIfLarger(than: self.$tabImageHeight)
+                            } else {
+                                Color.clear.frame(height: self.tabImageHeight)
+                            }
+                            
+                            self.barItems[index].tabLabel
+                                .frame(maxWidth: .infinity)
+                        }.padding(.top)
+                        .padding(.horizontal)
+                        .padding(.bottom, 35)
+                        .frame(maxWidth: .infinity,
+                                maxHeight: .infinity,
+                                alignment: .top)
                     }.foregroundColor(self.selectedIndex == index ? .accentColor : .secondary)
                 }
-            }.padding(.top)
-                .padding(.horizontal)
-                .padding(.bottom, 35)
-                .background(Color.white.shadow(radius: 4))
+            }
+            .background(Color.white.shadow(radius: 4))
     }
 }
 
