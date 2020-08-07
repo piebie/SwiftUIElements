@@ -59,18 +59,23 @@ struct CPTabView: View {
                 Spacer()
                 self.barItems[self.selectedIndex]
                 Spacer()
-                HStack(alignment: .top, spacing: 0) {
-                    ForEach(0 ..< self.barItems.count) { index in
-                        Button(action: { self.selectedIndex = index }) {
-                            self.barItems[index].tabItemBody
-                        }.foregroundColor(self.selectedIndex == index ? .accentColor : .secondary)
-                            .frame(width: geometry.size.width/CGFloat(self.barItems.count), height: 75)
-                    }
-                }.frame(width: geometry.size.width, height: 75)
-                    .padding(.bottom)
-                    .background(Color.white.shadow(radius: 4))
+                self.tabBar
+                    .frame(height: 75)
             }.edgesIgnoringSafeArea(.bottom)
         }
+    }
+
+    private var tabBar: some View {
+            HStack(alignment: .top, spacing: 0) {
+                ForEach(0 ..< self.barItems.count) { index in
+                    Button(action: { self.selectedIndex = index }) {
+                        self.barItems[index].tabItemBody
+                    }.foregroundColor(self.selectedIndex == index ? .accentColor : .secondary)
+                }
+            }.padding(.top)
+                .padding(.horizontal)
+                .padding(.bottom, 35)
+                .background(Color.white.shadow(radius: 4))
     }
 }
 
@@ -136,8 +141,8 @@ struct CPTabItem: View, Identifiable {
     var tabItemBody: some View {
         VStack {
             tabImage
-            tabLabel
-        }
+            tabLabel.frame(maxWidth: .infinity)
+        }.frame(maxWidth: .infinity)
     }
 }
 

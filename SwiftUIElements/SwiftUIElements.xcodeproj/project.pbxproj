@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8206EF9D24DDBA960084FE37 /* HeightPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206EF9C24DDBA960084FE37 /* HeightPreferenceKey.swift */; };
+		8206EFA024DDBB1D0084FE37 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206EF9F24DDBB1D0084FE37 /* View+Extensions.swift */; };
 		8228AC5724C20CE80046B382 /* SwiftUIElements.h in Headers */ = {isa = PBXBuildFile; fileRef = 8228AC5524C20CE80046B382 /* SwiftUIElements.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8228AC5F24C20D7B0046B382 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8228AC5E24C20D7B0046B382 /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8206EF9C24DDBA960084FE37 /* HeightPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightPreferenceKey.swift; sourceTree = "<group>"; };
+		8206EF9F24DDBB1D0084FE37 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		8228AC5224C20CE80046B382 /* SwiftUIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftUIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8228AC5524C20CE80046B382 /* SwiftUIElements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftUIElements.h; sourceTree = "<group>"; };
 		8228AC5624C20CE80046B382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +33,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8206EF9B24DDBA7F0084FE37 /* PreferenceKeys */ = {
+			isa = PBXGroup;
+			children = (
+				8206EF9C24DDBA960084FE37 /* HeightPreferenceKey.swift */,
+			);
+			path = PreferenceKeys;
+			sourceTree = "<group>";
+		};
+		8206EF9E24DDBB110084FE37 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8206EF9F24DDBB1D0084FE37 /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8228AC4824C20CE80046B382 = {
 			isa = PBXGroup;
 			children = (
@@ -48,6 +68,8 @@
 		8228AC5424C20CE80046B382 /* SwiftUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				8206EF9E24DDBB110084FE37 /* Extensions */,
+				8206EF9B24DDBA7F0084FE37 /* PreferenceKeys */,
 				8228AC5D24C20D350046B382 /* Progress Indicators */,
 				8228AC5524C20CE80046B382 /* SwiftUIElements.h */,
 				8228AC5624C20CE80046B382 /* Info.plist */,
@@ -144,6 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8228AC5F24C20D7B0046B382 /* ProgressBar.swift in Sources */,
+				8206EFA024DDBB1D0084FE37 /* View+Extensions.swift in Sources */,
+				8206EF9D24DDBA960084FE37 /* HeightPreferenceKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
