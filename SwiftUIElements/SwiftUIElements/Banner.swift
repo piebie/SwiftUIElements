@@ -16,7 +16,16 @@ public struct Banner: ViewModifier {
     }
 
     public func body(content: Content) -> some View {
-        content
+        VStack(spacing: 0) {
+            if message != nil {
+                Text(message ?? "")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.purple)
+            }
+
+            content
+        }
     }
 }
 
