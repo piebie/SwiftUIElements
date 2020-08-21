@@ -47,7 +47,7 @@ struct ContentView : View {
             }, viewContent: {
                 Text("Tab 5")
             })
-        }
+        }.presentBanner(with: "Hello, World!")
     }
 }
 

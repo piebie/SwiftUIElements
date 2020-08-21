@@ -11,6 +11,7 @@
 		8206EFA024DDBB1D0084FE37 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206EF9F24DDBB1D0084FE37 /* View+Extensions.swift */; };
 		8228AC5724C20CE80046B382 /* SwiftUIElements.h in Headers */ = {isa = PBXBuildFile; fileRef = 8228AC5524C20CE80046B382 /* SwiftUIElements.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8228AC5F24C20D7B0046B382 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8228AC5E24C20D7B0046B382 /* ProgressBar.swift */; };
+		8248C79D24F02FBC00D1CC96 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8248C79C24F02FBC00D1CC96 /* Banner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		8228AC5524C20CE80046B382 /* SwiftUIElements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftUIElements.h; sourceTree = "<group>"; };
 		8228AC5624C20CE80046B382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8228AC5E24C20D7B0046B382 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		8248C79C24F02FBC00D1CC96 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				8228AC5D24C20D350046B382 /* Progress Indicators */,
 				8228AC5524C20CE80046B382 /* SwiftUIElements.h */,
 				8228AC5624C20CE80046B382 /* Info.plist */,
+				8248C79C24F02FBC00D1CC96 /* Banner.swift */,
 			);
 			path = SwiftUIElements;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8228AC5F24C20D7B0046B382 /* ProgressBar.swift in Sources */,
+				8248C79D24F02FBC00D1CC96 /* Banner.swift in Sources */,
 				8206EFA024DDBB1D0084FE37 /* View+Extensions.swift in Sources */,
 				8206EF9D24DDBA960084FE37 /* HeightPreferenceKey.swift in Sources */,
 			);
