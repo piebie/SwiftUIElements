@@ -34,3 +34,9 @@ extension View {
         self.modifier(Banner(message: text))
     }
 }
+
+struct Banner_Previews: PreviewProvider {
+    static var previews: some View {
+        Text("Hello, World!")
+    }
+}
