@@ -16,8 +16,14 @@ public struct StatusModifier: ViewModifier {
         case success
     }
 
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+
     let imageSystemName: String
     let baseColor: Color
+
+    var opacity: Double {
+        colorScheme == .light ? 0.1 : 0.25
+    }
 
     public init(imageSystemName: String, baseColor: Color) {
         self.imageSystemName = imageSystemName
@@ -29,10 +35,10 @@ public struct StatusModifier: ViewModifier {
             Image(systemName: imageSystemName)
             content
         }.padding(4)
-        .background(baseColor.opacity(0.1))
+        .background(baseColor.opacity(self.opacity))
         .foregroundColor(baseColor)
         .overlay(Rectangle()
-                    .frame(height: 2)
+                    .frame(height: 1.5)
                     .foregroundColor(baseColor),
                  alignment: .bottom)
     }
@@ -50,7 +56,7 @@ extension View {
         case .info:
             return self.modifier(StatusModifier(imageSystemName: "info.circle.fill", baseColor: .blue))
         case .warning:
-            return self.modifier(StatusModifier(imageSystemName: "exclamationmark.triangle.fill", baseColor: .yellow))
+            return self.modifier(StatusModifier(imageSystemName: "exclamationmark.triangle.fill", baseColor: .orange))
         case .success:
             return self.modifier(StatusModifier(imageSystemName: "checkmark.circle.fill", baseColor: .green))
         }
@@ -68,5 +74,15 @@ struct StatusModifier_Previews: PreviewProvider {
                 .status(.warning)
             Image(systemName: "person").status(.error)
         }
+
+        VStack {
+            Text("Hello, World!").status(.info)
+            Text("Hello, World!").status(.error)
+            Text("Hello, World!").status(.success)
+            Text("Hello, World!")
+                .status(.warning)
+            Image(systemName: "person").status(.error)
+        }
+        .preferredColorScheme(.dark)
     }
 }

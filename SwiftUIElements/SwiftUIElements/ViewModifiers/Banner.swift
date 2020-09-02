@@ -16,15 +16,17 @@ public struct Banner: ViewModifier {
     }
 
     public func body(content: Content) -> some View {
-        VStack(spacing: 0) {
+        ZStack(alignment: .top) {
+            content
+
             if message != nil {
                 Text(message ?? "")
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.purple)
+                    .background(Color.red.opacity(0.8))
+                    .cornerRadius(8)
+                    .padding(10)
             }
-
-            content
         }
     }
 }
@@ -37,6 +39,6 @@ extension View {
 
 struct Banner_Previews: PreviewProvider {
     static var previews: some View {
-        Text("Hello, World!")
+        Color.blue.opacity(0.3).presentBanner(with: "Hello, World!")
     }
 }
