@@ -67,7 +67,8 @@ extension View {
 struct StatusModifier_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            Text("Hello, World!").status(.info)
+            Text("Hello, World!")
+                .status(.info)
             Text("Hello, World!").status(.error)
             Text("Hello, World!").status(.success)
             Text("Hello, World!")

@@ -11,32 +11,22 @@ import SwiftUIElements
 
 struct ContentView : View {
     var body: some View {
-        CPTabView(index: 2) {
-            CPTabItem(tabContent: {
-                Text("Heyo it's me today")
-            }, viewContent: {
-                Text("Tab 1")
-                ProgressBar(progress: 0.5).frame(width: 200)
-            })
-
-            CPTabItem(tabContent: {
-                Image(systemName: "pencil")
-            }, viewContent: {
-                Text("Tab 2")
-            })
-
-            CPTabItem(tabContent: {
-                Text("Boop")
-                Image(systemName: "person")
-            }, viewContent: {
-                Text("Tab 3")
-            })
-
+        CPTabView(index: 1) {
             CPTabItem(tabContent: {
                 Image(systemName: "star")
                 Text("Beep")
             }, viewContent: {
-                Text("Tab 4")
+                Text("Tab 4").onTapGesture(count: 1, perform: {
+                    print("hello")
+                })
+                Text(" askdfjalsdf")
+            })
+
+            CPTabItem(tabContent: {
+                Text("Devices")
+                Image(systemName: "desktopcomputer")
+            }, viewContent: {
+                DeviceList()
             })
 
             CPTabItem(tabContent: {
@@ -47,7 +37,7 @@ struct ContentView : View {
             }, viewContent: {
                 Text("Tab 5")
             })
-        }.presentBanner(with: "Hello, World!")
+        }.presentBanner(with: "No internet")
     }
 }
 

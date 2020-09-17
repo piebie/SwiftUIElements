@@ -14,6 +14,7 @@
 		8228AC3E24C20CB50046B382 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8228AC3D24C20CB50046B382 /* Preview Assets.xcassets */; };
 		8228AC4124C20CB50046B382 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8228AC3F24C20CB50046B382 /* LaunchScreen.storyboard */; };
 		8228AC6124C220EE0046B382 /* CPTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8228AC6024C220EE0046B382 /* CPTabView.swift */; };
+		8297BFB62500131A00AC6158 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8297BFB52500131A00AC6158 /* Card.swift */; };
 		82ABD22E24CB41150074C3F2 /* SwiftUIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82ABD22D24CB41150074C3F2 /* SwiftUIElements.framework */; };
 		82ABD22F24CB41150074C3F2 /* SwiftUIElements.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82ABD22D24CB41150074C3F2 /* SwiftUIElements.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		8228AC4024C20CB50046B382 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8228AC4224C20CB50046B382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8228AC6024C220EE0046B382 /* CPTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTabView.swift; sourceTree = "<group>"; };
+		8297BFB52500131A00AC6158 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		82ABD22D24CB41150074C3F2 /* SwiftUIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftUIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 		8228AC3324C20CB30046B382 /* iOS App */ = {
 			isa = PBXGroup;
 			children = (
+				8297BFB42500125E00AC6158 /* Views */,
 				8228AC3424C20CB30046B382 /* AppDelegate.swift */,
 				8228AC3624C20CB30046B382 /* SceneDelegate.swift */,
 				8228AC6024C220EE0046B382 /* CPTabView.swift */,
@@ -95,6 +98,14 @@
 				8228AC3D24C20CB50046B382 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8297BFB42500125E00AC6158 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8297BFB52500131A00AC6158 /* Card.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		82ABD22C24CB41150074C3F2 /* Frameworks */ = {
@@ -181,6 +192,7 @@
 				8228AC3724C20CB30046B382 /* SceneDelegate.swift in Sources */,
 				8228AC3924C20CB30046B382 /* ContentView.swift in Sources */,
 				8228AC6124C220EE0046B382 /* CPTabView.swift in Sources */,
+				8297BFB62500131A00AC6158 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

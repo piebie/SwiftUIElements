@@ -16,17 +16,15 @@ public struct Banner: ViewModifier {
     }
 
     public func body(content: Content) -> some View {
-        ZStack(alignment: .top) {
-            content
-
+        VStack(spacing: 0) {
             if message != nil {
                 Text(message ?? "")
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.red.opacity(0.8))
-                    .cornerRadius(8)
-                    .padding(10)
             }
+
+            content
         }
     }
 }
