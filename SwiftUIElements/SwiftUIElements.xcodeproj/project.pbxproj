@@ -13,6 +13,7 @@
 		8228AC5F24C20D7B0046B382 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8228AC5E24C20D7B0046B382 /* ProgressBar.swift */; };
 		8248C79D24F02FBC00D1CC96 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8248C79C24F02FBC00D1CC96 /* Banner.swift */; };
 		8297BFB324FEC2A400AC6158 /* StatusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8297BFB224FEC2A400AC6158 /* StatusModifier.swift */; };
+		82EBD540251BD2AB000E972C /* FormattableTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EBD53F251BD2AB000E972C /* FormattableTextModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8228AC5E24C20D7B0046B382 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		8248C79C24F02FBC00D1CC96 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		8297BFB224FEC2A400AC6158 /* StatusModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModifier.swift; sourceTree = "<group>"; };
+		82EBD53F251BD2AB000E972C /* FormattableTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattableTextModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		8228AC5424C20CE80046B382 /* SwiftUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				82EBD53D251BD27D000E972C /* FormattableText */,
 				8297BFAC24FEBAFC00AC6158 /* ViewModifiers */,
 				8206EF9E24DDBB110084FE37 /* Extensions */,
 				8206EF9B24DDBA7F0084FE37 /* PreferenceKeys */,
@@ -97,6 +100,14 @@
 				8248C79C24F02FBC00D1CC96 /* Banner.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		82EBD53D251BD27D000E972C /* FormattableText */ = {
+			isa = PBXGroup;
+			children = (
+				82EBD53F251BD2AB000E972C /* FormattableTextModel.swift */,
+			);
+			path = FormattableText;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8228AC5F24C20D7B0046B382 /* ProgressBar.swift in Sources */,
+				82EBD540251BD2AB000E972C /* FormattableTextModel.swift in Sources */,
 				8297BFB324FEC2A400AC6158 /* StatusModifier.swift in Sources */,
 				8248C79D24F02FBC00D1CC96 /* Banner.swift in Sources */,
 				8206EFA024DDBB1D0084FE37 /* View+Extensions.swift in Sources */,
