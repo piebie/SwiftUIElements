@@ -16,10 +16,9 @@ struct ContentView : View {
                 Image(systemName: "star")
                 Text("Beep")
             }, viewContent: {
-                Text("Tab 4").onTapGesture(count: 1, perform: {
-                    print("hello")
-                })
-                Text(" askdfjalsdf")
+                FormattableText(text: "This is a string")
+                FormattableText(text: "<purple>This</purple> is a string")
+                FormattableText(text: "<fancyGreen>This</fancyGreen> is <bold>a</bold> string")
             })
 
             CPTabItem(tabContent: {

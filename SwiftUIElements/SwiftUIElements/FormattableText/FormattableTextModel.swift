@@ -6,12 +6,24 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
+import SwiftUI
+
 internal class FormattableTextModel {
     enum TextElement {
         case text(String)
         case openTag(String)
         case closeTag(String)
     }
+
+    static var styles = ["purple": FormattableTextStyle(name: "purple",
+                                                        color: .purple),
+                         "bold": FormattableTextStyle(name: "bold",
+                                                      bold: true),
+                         "fancyGreen": FormattableTextStyle(name: "fancyGreen",
+                                                            color: .green,
+                                                            italics: true)]
+
+    var styleStacks = ["Style": [FormattableTextStyle]()]
 
     func getElements(from formatString: String) -> [TextElement] {
         var result = [TextElement]()
@@ -71,24 +83,48 @@ internal class FormattableTextModel {
         return result
     }
 
-//    func getTextFromElements(elements: [TextElement]) -> Text {
-//        var text = Text("")
-//        for element in elements {
-//            switch {
-//            case let .text(value):
-//
-//                var currentText = Text(value)
-//                // apply styles
-//                text += currentText
-//            case let .openTag(value):
-//                // check style
-//                // push to style stack
-//            case let .closeTag(value):
-//                // check style
-//                // pop from style stack
-//            }
-//        }
-//
-//        return text
-//    }
+
+    func getTextFromElements(elements: [TextElement]) -> Text {
+        var text = Text("")
+        for element in elements {
+            switch element {
+            case let .text(value):
+                var currentText = Text(value)
+
+                if let style = styleStacks["Style"]?.last {
+                    currentText = apply(style: style, to: currentText)
+                }
+
+                text = text + currentText
+
+            case let .openTag(value):
+                // check style
+                // push to style stack
+                guard let style = FormattableTextModel.styles[value] else {
+                    return Text("SOMETHING TERRIBLE HAPPENED")
+                }
+
+                styleStacks[style.category]?.append(style)
+            case let .closeTag(value):
+                guard let style = FormattableTextModel.styles[value] else {
+                    return Text("SOMETHING TERRIBLE HAPPENED")
+                }
+
+                _ = styleStacks[style.category]?.popLast()
+            }
+        }
+
+        return text
+    }
+
+    func apply(style: FormattableTextStyle, to text: Text) -> Text {
+        var text = text
+        if style.italics {
+            text = text.italic()
+        }
+
+        return text
+            .fontWeight(style.bold ? .bold : .regular)
+            .foregroundColor(style.color)
+    }
 }
