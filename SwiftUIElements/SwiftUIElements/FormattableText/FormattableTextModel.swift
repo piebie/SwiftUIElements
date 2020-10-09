@@ -15,15 +15,7 @@ internal class FormattableTextModel {
         case closeTag(String)
     }
 
-    static var styles = ["purple": FormattableTextStyle(name: "purple",
-                                                        color: .purple),
-                         "bold": FormattableTextStyle(name: "bold",
-                                                      bold: true),
-                         "fancyGreen": FormattableTextStyle(name: "fancyGreen",
-                                                            color: .green,
-                                                            italics: true)]
-
-    var styleStacks = ["Style": [FormattableTextStyle]()]
+    private let styleStack = FormattableTextStyleStack()
 
     func getElements(from formatString: String) -> [TextElement] {
         var result = [TextElement]()
@@ -83,7 +75,6 @@ internal class FormattableTextModel {
         return result
     }
 
-
     func getTextFromElements(elements: [TextElement]) -> Text {
         var text = Text("")
         for element in elements {
@@ -91,7 +82,7 @@ internal class FormattableTextModel {
             case let .text(value):
                 var currentText = Text(value)
 
-                if let style = styleStacks["Style"]?.last {
+                for style in styleStack.getCurrentStyles() {
                     currentText = apply(style: style, to: currentText)
                 }
 
@@ -100,17 +91,17 @@ internal class FormattableTextModel {
             case let .openTag(value):
                 // check style
                 // push to style stack
-                guard let style = FormattableTextModel.styles[value] else {
+                guard let style = FormattableTextStyleStack.styles[value] else {
                     return Text("SOMETHING TERRIBLE HAPPENED")
                 }
 
-                styleStacks[style.category]?.append(style)
+                styleStack.pushStyle(style: style)
             case let .closeTag(value):
-                guard let style = FormattableTextModel.styles[value] else {
+                guard let style = FormattableTextStyleStack.styles[value] else {
                     return Text("SOMETHING TERRIBLE HAPPENED")
                 }
 
-                _ = styleStacks[style.category]?.popLast()
+                styleStack.popStyle(category: style.category)
             }
         }
 
@@ -126,5 +117,11 @@ internal class FormattableTextModel {
         return text
             .fontWeight(style.bold ? .bold : .regular)
             .foregroundColor(style.color)
+    }
+}
+
+struct FormattableTextModel_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

@@ -15,6 +15,7 @@
 		8297BFB324FEC2A400AC6158 /* StatusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8297BFB224FEC2A400AC6158 /* StatusModifier.swift */; };
 		82D0E5A12527AB560012C7CE /* FormattableTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D0E5A02527AB560012C7CE /* FormattableTextStyle.swift */; };
 		82D0E5A42527AFBD0012C7CE /* FormattableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D0E5A32527AFBD0012C7CE /* FormattableText.swift */; };
+		82DEB4302530E5D400C6AFF5 /* FormattableTextStyleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DEB42F2530E5D400C6AFF5 /* FormattableTextStyleStack.swift */; };
 		82EBD540251BD2AB000E972C /* FormattableTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EBD53F251BD2AB000E972C /* FormattableTextModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		8297BFB224FEC2A400AC6158 /* StatusModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModifier.swift; sourceTree = "<group>"; };
 		82D0E5A02527AB560012C7CE /* FormattableTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattableTextStyle.swift; sourceTree = "<group>"; };
 		82D0E5A32527AFBD0012C7CE /* FormattableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattableText.swift; sourceTree = "<group>"; };
+		82DEB42F2530E5D400C6AFF5 /* FormattableTextStyleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattableTextStyleStack.swift; sourceTree = "<group>"; };
 		82EBD53F251BD2AB000E972C /* FormattableTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattableTextModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,9 +111,10 @@
 		82EBD53D251BD27D000E972C /* FormattableText */ = {
 			isa = PBXGroup;
 			children = (
+				82D0E5A32527AFBD0012C7CE /* FormattableText.swift */,
 				82EBD53F251BD2AB000E972C /* FormattableTextModel.swift */,
 				82D0E5A02527AB560012C7CE /* FormattableTextStyle.swift */,
-				82D0E5A32527AFBD0012C7CE /* FormattableText.swift */,
+				82DEB42F2530E5D400C6AFF5 /* FormattableTextStyleStack.swift */,
 			);
 			path = FormattableText;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				8206EFA024DDBB1D0084FE37 /* View+Extensions.swift in Sources */,
 				82D0E5A42527AFBD0012C7CE /* FormattableText.swift in Sources */,
 				8206EF9D24DDBA960084FE37 /* HeightPreferenceKey.swift in Sources */,
+				82DEB4302530E5D400C6AFF5 /* FormattableTextStyleStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

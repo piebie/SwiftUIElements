@@ -16,9 +16,10 @@ struct ContentView : View {
                 Image(systemName: "star")
                 Text("Beep")
             }, viewContent: {
-                FormattableText(text: "This is a string")
+                FormattableText(text: "This is a <bold>string</bold>")
                 FormattableText(text: "<purple>This</purple> is a string")
-                FormattableText(text: "<fancyGreen>This</fancyGreen> is <bold>a</bold> string")
+                FormattableText(text: "<purple>This <bold>is a</bold> string</purple>")
+//                FormattableText(text: "<fancyGreen>This</fancyGreen> is <bold>a</bold> string")
             })
 
             CPTabItem(tabContent: {

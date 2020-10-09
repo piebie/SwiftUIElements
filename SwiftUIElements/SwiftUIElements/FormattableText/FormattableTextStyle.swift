@@ -8,13 +8,31 @@
 
 import SwiftUI
 
+protocol Style {
+    var name: String { get }
+    var category: String { get }
+
+    func apply(to text: Text) -> Text
+}
+
+class WeightStyle: Style {
+    var name: String { "bold" }
+    var category: String { "weight" }
+
+    func apply(to text: Text) -> Text {
+        text
+            .fontWeight(.bold)
+    }
+}
+
+
+
 struct FormattableTextStyle {
     var name: String
+    var category: String
+    
     var color = Color.primary
     //var font: Font
     var italics = false
     var bold = false
-
-    // var categories: Set<String>
-    var category = "Style"
 }
