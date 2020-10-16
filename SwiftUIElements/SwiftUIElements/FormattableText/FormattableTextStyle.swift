@@ -8,7 +8,24 @@
 
 import SwiftUI
 
-protocol Style {
+/*
+ {
+    name: "bold"
+    category: "weight"
+    weight: "bold"
+ },
+ {
+    name: "weightBlack"
+    category: "weight"
+    weight: "black"
+ },
+ {
+    name: "purple"
+    category: "color"
+    color: "systemPurple"
+ */
+
+protocol Style: AnyObject {
     var name: String { get }
     var category: String { get }
 
@@ -16,23 +33,43 @@ protocol Style {
 }
 
 class WeightStyle: Style {
-    var name: String { "bold" }
     var category: String { "weight" }
+
+    var name: String
+    var weight: Font.Weight
+
+    init(name: String,
+         weight: Font.Weight) {
+        self.name = name
+        self.weight = weight
+    }
 
     func apply(to text: Text) -> Text {
         text
-            .fontWeight(.bold)
+            .fontWeight(weight)
     }
 }
 
+class ColorStyle: Style {
+    var category: String { "color" }
 
-
-struct FormattableTextStyle {
     var name: String
-    var category: String
-    
-    var color = Color.primary
-    //var font: Font
-    var italics = false
-    var bold = false
+    var color: Color
+
+    init(name: String,
+         color: Color) {
+        self.name = name
+        self.color = color
+    }
+
+    func apply(to text: Text) -> Text {
+        text
+            .foregroundColor(color)
+    }
+}
+
+struct FormattableTextStyle_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
 }

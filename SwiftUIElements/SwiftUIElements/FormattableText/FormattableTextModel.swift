@@ -83,7 +83,7 @@ internal class FormattableTextModel {
                 var currentText = Text(value)
 
                 for style in styleStack.getCurrentStyles() {
-                    currentText = apply(style: style, to: currentText)
+                    currentText = style.apply(to: currentText)
                 }
 
                 text = text + currentText

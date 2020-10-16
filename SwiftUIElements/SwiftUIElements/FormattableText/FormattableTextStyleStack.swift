@@ -9,12 +9,10 @@
 import Foundation
 
 class FormattableTextStyleStack {
-    static var styles = ["purple": FormattableTextStyle(name: "purple",
-                                                        category: "Color",
-                                                        color: .purple),
-                         "bold": FormattableTextStyle(name: "bold",
-                                                      category: "Weight",
-                                                      bold: true)]
+    static var styles: [String: Style] = ["purple": ColorStyle(name: "purple",
+                                                               color: .purple),
+                                          "bold": WeightStyle(name: "bold",
+                                                              weight: .bold)]
 
 // TODO: Compound style?
 //    "fancyGreen": FormattableTextStyle(name: "fancyGreen",
@@ -22,9 +20,9 @@ class FormattableTextStyleStack {
 //    color: .green,
 //    italics: true)
 
-    var styleStacks = [String: [FormattableTextStyle]]()
+    var styleStacks = [String: [Style]]()
 
-    func pushStyle(style: FormattableTextStyle) {
+    func pushStyle(style: Style) {
         styleStacks[style.category, default: []].append(style)
     }
 
@@ -32,8 +30,8 @@ class FormattableTextStyleStack {
         styleStacks[category]?.removeLast()
     }
 
-    func getCurrentStyles() -> [FormattableTextStyle] {
-        var styles = [FormattableTextStyle]()
+    func getCurrentStyles() -> [Style] {
+        var styles = [Style]()
 
         for category in styleStacks.keys {
             if let currentStyle = styleStacks[category]?.last {
